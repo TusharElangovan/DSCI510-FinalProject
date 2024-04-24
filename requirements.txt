@@ -1,2 +1,2 @@
 matplotlib
-BeautifulSoup
+bs4
