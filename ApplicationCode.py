@@ -1,10 +1,9 @@
 import streamlit as st
 import pandas as pd
-from RedditApi import df_concat
 from NewYahooApi import fetchyahooresults
 import matplotlib.pyplot as plt
 
-df = df_concat
+df = pd.read_csv('df_concat.csv')
 
 # Title and header
 st.title('Stock Sentiment Analysis App')
