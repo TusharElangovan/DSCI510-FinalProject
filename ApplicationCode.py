@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-# from NewYahooApi import fetchyahooresults
 import matplotlib.pyplot as plt
 import datetime
 import requests
@@ -61,7 +60,6 @@ def fetchyahooresults(ticker, date):
   return(stockdata)
 
 
-
 df = pd.read_csv('df_concat.csv')
 
 # Title and header
@@ -70,8 +68,10 @@ st.title('Stock Sentiment Analysis App')
 # Author information
 st.sidebar.markdown("**Author:** Tushar Elangovan")
 
-# Web Appの説明 (Explanation)
-st.markdown("""
+tabs = st.tabs(["App Description", "Project Description"])
+
+with tabs[0]:
+  st.markdown("""
 ## How to Use the App
 
 The side bar on the left side gives us the options for 2 filters. 
@@ -149,8 +149,11 @@ if fetch_button and selected_ticker != 'All':
         fetched_data = "Unfortunately Historical Data Not Available for this Stock, Please Try another Stock"
         st.write(fetched_data)
 
+   
+with tabs[1]:
+
 # Project Description
-st.markdown("""
+  st.markdown("""
 ## Project Description
 
 **What did you set out to study?**
@@ -171,10 +174,14 @@ st.markdown("""
             
 **Next Steps**
             
+* Search for news articles resources to understand why the specific industry stock rose or declined in values
+            
 * Expand Data Sources: Integrate additional data sources beyond Yahoo Finance. This could include alternative stock market APIs, financial news aggregators, or social media sentiment analysis tools.
             
 * Predictive Analysis: Explore the possibility of integrating machine learning models to predict future stock prices based on historical data and news sentiment analysis.
     
 * Comparative Analysis: Allow users to compare the performance and sentiment of multiple stocks side-by-side.
+            
 
 """)
+
